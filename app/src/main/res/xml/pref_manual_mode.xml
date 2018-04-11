@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/manual_mode_key"
+        android:summary="@string/manual_mode_summary"
+        android:title="@string/manual_mode_title" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/over_limits_key"
+        android:summary="@string/over_limits_summary"
+        android:title="@string/over_limits_title" />
+</PreferenceScreen>

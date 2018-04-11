@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/figure_type_entries"
+        android:entryValues="@array/figure_type_entries_values"
+        android:key="@string/figure_type_pref_key"
+        android:summary="@string/figure_type_pref_summary"
+        android:title="@string/figure_type_pref_title" />
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="5"
+        android:inputType="numberDecimal"
+        android:key="@string/error_margin_pref_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/error_margin_pref_summary"
+        android:title="@string/error_margin_pref_title" />
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="5"
+        android:inputType="numberDecimal"
+        android:key="@string/radio_pref_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/radio_pref_summary"
+        android:title="@string/radio_pref_title" />
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="@string/edge_pref_default"
+        android:inputType="numberDecimal"
+        android:key="@string/edge_pref_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/edge_pref_summary"
+        android:title="@string/edge_pref_title" />
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="@string/width_pref_default"
+        android:inputType="numberDecimal"
+        android:key="@string/width_pref_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/width_pref_summary"
+        android:title="@string/width_pref_title" />
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="@string/length_pref_default"
+        android:inputType="numberDecimal"
+        android:key="@string/length_pref_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/length_pref_summary"
+        android:title="@string/length_pref_title" />
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="9"
+        android:inputType="numberDecimal"
+        android:key="static_height_pref"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/static_height_pref_summary"
+        android:title="@string/static_height_pref_title" />
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="5"
+        android:inputType="numberDecimal"
+        android:key="full_height_pref"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/full_height_pref_summary"
+        android:title="@string/full_height_pref_title" />
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="9"
+        android:inputType="numberDecimal"
+        android:key="empty_height_pref"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/empty_height_pref_summary"
+        android:title="@string/empty_height_pref_title" />
+
+</PreferenceScreen>

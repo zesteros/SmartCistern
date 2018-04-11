@@ -1,0 +1,113 @@
+#include <Ultrasonic.h>
+
+#include <SoftwareSerial.h>
+
+const String MODE = "3";
+const String SSID_TO_CONNECT  = "LOZA_2";
+const String PASS_TO_CONNECT = "bugatti123";
+const String AP_SSID = "SMART_CISTERN";
+const String AP_PASS = "bugatti123";
+const String AP_CHANNEL = "5";
+const String AP_SECURITY = "4";
+const String IP_ADD_STATION = "192.168.1.100";
+const String IP_ADD_AP = "192.168.1.99";
+const String DEFAULT_GATEWAY = "192.168.1.254";
+const String SUBNET_MASK = "255.255.255.0";
+const String PORT = "10001";
+
+Ultrasonic ultrasonic(4,5); //Ultrasonic ultrasonic(Trig,Echo);
+
+const int timeout = 200;
+
+String commands [][3] = {
+
+  {"AT+CIPMUX=1",             "1000", "20"},
+  {"AT+CIPSERVER=1," + PORT,  "1000", "20"},
+};
+
+
+SoftwareSerial esp8266(3, 2); // TX,RX
+
+void setup() {
+  Serial.begin(115200);
+  esp8266.begin(115200);
+
+  for (int i = 0; i < 2; i++) {
+    sendCommand(commands[i][0] + "\r\n", commands[i][1].toInt());
+    delay(commands[i][2].toInt());
+  }
+
+  Serial.println("Server Ready");
+}
+
+void loop() {
+  for (int i = 0; i < 2; i++) {
+    sendCommand(commands[i][0] + "\r\n", commands[i][1].toInt());
+    delay(commands[i][2].toInt());
+  }
+  if (esp8266.available()) { // check if the esp is sending a message
+    if (esp8266.find("+IPD,")) {
+      delay(500);
+      int connectionId = esp8266.read() - 48; // subtract 48 because the read() function returns
+      String data = "#";
+      sendHTTPResponse(connectionId, data + String(ultrasonic.Ranging(CM), DEC) + "+*");
+    }
+  }
+}
+
+String sendData(String command, const int timeout) {
+  String response = "";
+  int dataSize = command.length();
+  char data[dataSize];
+  command.toCharArray(data, dataSize);
+  esp8266.write(data, dataSize); // send the read character to the esp8266
+  return response;
+}
+
+void sendHTTPResponse(int connectionId, String content) {
+  String httpResponse;
+  String httpHeader;
+  httpHeader = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n";
+  httpHeader += "Content-Length: ";
+  httpHeader += content.length();
+  httpHeader += "\r\n";
+  httpHeader += "Connection: close\r\n\r\n";
+  /*httpHeader += "Cache-Control: max-age=0\r\n";
+  httpHeader += "Upgrade-Insecure-Requests: 1\r\n";
+  httpHeader += "User-Agent: Arduino\r\n";
+  httpHeader += "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,\*\/\*\;q=0.8\r\n";
+  httpHeader += "Accept-Encoding: gzip, deflate, sdch\r\n";
+  httpHeader += "Accept-Language: es-US,es-419;q=0.8,es;q=0.6\r\t";*/
+  httpResponse = httpHeader + content + " "; // There is a bug in this code: the last character of "content" is not sent, I cheated by adding this extra space
+  sendCIPData(connectionId, httpResponse);
+}
+
+void sendCIPData(int connectionId, String data) {
+  String cipSend = "AT+CIPSEND=";
+  cipSend += connectionId;
+  cipSend += ",";
+  cipSend += data.length();
+  cipSend += "\r\n";
+  sendCommand(cipSend, timeout);
+  delay(100);
+  sendData(data, timeout);
+  delay(100);
+}
+
+String sendCommand(String command, const int timeout) {
+  String response = "";
+  esp8266.print(command); // send the read character to the esp8266
+  long int time = millis();
+  while ( (time + 50) > millis())
+    while (esp8266.available()) {
+      // The esp has data so display its output to the serial window
+      char c = esp8266.read(); // read the next character.
+      response += c;
+    }
+  Serial.print(response);
+  return response;
+}
+
+
+
+

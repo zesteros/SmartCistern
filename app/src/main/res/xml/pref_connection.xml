@@ -1,0 +1,47 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="@string/pref_default_ip_cistern"
+        android:inputType="numberDecimal"
+        android:key="@string/cistern_ip_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_ip_cistern"
+        android:summary="@string/pref_summary_ip_cistern"/>
+    <EditTextPreference
+        android:defaultValue="@string/pref_default_port_cistern"
+        android:inputType="number"
+        android:key="@string/cistern_port_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_port_cistern"
+        android:summary="@string/pref_summary_port_cistern"/>
+    <EditTextPreference
+        android:capitalize="characters"
+        android:defaultValue="@string/pref_default_ip_pump"
+        android:inputType="numberDecimal"
+        android:key="@string/pump_ip_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_ip_pump"
+        android:summary="@string/pref_summary_ip_pump"/>
+    <EditTextPreference
+        android:defaultValue="@string/pref_default_port_pump"
+        android:inputType="number"
+        android:key="@string/pump_port_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_port_pump"
+        android:summary="@string/pref_summary_port_pump"/>
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:title="@string/show_screens_title"
+        android:summary="@string/show_screens_summary"
+        android:key="@string/show_screens_key"/>
+
+</PreferenceScreen>

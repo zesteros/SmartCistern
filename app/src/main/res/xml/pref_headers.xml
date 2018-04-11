@@ -1,0 +1,22 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="itl.angelo.smartcistern.activities.SettingsActivity$GeneralPreferenceFragment"
+        android:icon="@drawable/ic_setting_connection"
+        android:title="@string/pref_header_connection" />
+    <header
+        android:fragment="itl.angelo.smartcistern.activities.SettingsActivity$ContainerPreferenceFragment"
+        android:icon="@drawable/ic_setting_container"
+        android:title="@string/pref_header_container" />
+
+  <header
+        android:fragment="itl.angelo.smartcistern.activities.SettingsActivity$ManualModePreference"
+        android:icon="@drawable/ic_pref_manual_mode"
+        android:title="@string/pref_header_manual_mode" />
+    <header
+        android:fragment="itl.angelo.smartcistern.activities.SettingsActivity$NotificationPreferenceFragment"
+        android:icon="@drawable/ic_notification_header"
+        android:title="@string/pref_header_notification" />
+</preference-headers>

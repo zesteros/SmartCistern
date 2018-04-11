@@ -1,0 +1,3 @@
+http://www.pridopia.co.uk/pi-doc/ESP8266ATCommandsSet.pdf
+https://www.reddit.com/r/esp8266/comments/355229/invalid_message_at_boot/
+http://fab.cba.mit.edu/classes/863.14/tutorials/Programming/serialwifi.html

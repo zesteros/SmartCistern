@@ -1,0 +1,31 @@
+  {"AT+RST",                   "2000", "5000"},
+  {"AT+CWMODE=" + MODE,        "1000", "3000"},
+  {
+    "AT+CWJAP=\"" +
+    SSID_TO_CONNECT + "\",\"" +
+    PASS_TO_CONNECT + "\"", "1000", "5000"
+  },
+  {
+    "AT+CWSAP=\"" +
+    AP_SSID + "\",\"" +
+    AP_PASS + "\"," +
+    AP_CHANNEL + "," +
+    AP_SECURITY, "1000", "5000"
+  },
+  {"AT+CIPMUX=1",             "1000", "3000"},
+  {"AT+CIPSERVER=1," + PORT,  "1000", "4000"},
+  {
+    "AT+CIPAP=\"" +
+    IP_ADD_AP + "\",\"" +
+    DEFAULT_GATEWAY + "\",\"" +
+    SUBNET_MASK + "\"", "1000", "4000"
+  },
+  {"AT+CWDHCP=2,0", "1000","2000"},
+  {
+    "AT+CIPSTA=\"" +
+    IP_ADD_STATION + "\",\"" +
+    DEFAULT_GATEWAY + "\",\"" +
+    SUBNET_MASK + "\"", "1000", "4000"
+  },
+  {"AT+RST",                   "2000", "5000"},
+  {"AT+CIFSR",               "1000", "5000"}

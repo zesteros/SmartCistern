@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#0288D1</color>
+    <color name="colorAccent">#536DFE</color>
+    <color name="colorPrimaryLight">#B3E5FC</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorDivider">#BDBDBD</color>
+
+    <color name="colorWaterTank">#94ffff</color>
+    <color name="colorWaterTankMedium">#00cdf8</color>
+    <color name="colorWaterTankDark">#00b6f8</color>
+
+    <color name="colorWaterBackgroundLight">#c9ecff</color>
+    <color name="colorWaterBackgroundMedium">#7ad7ff</color>
+    <color name="colorWaterBackgroundDark">#2acafc</color>
+    
+    <color name="colorPurple">#536DFF</color>
+    <color name="colorLightPurple">#8C9BFF</color>
+    <color name="colorDarkPurple">#2846FF</color>
+
+</resources>
